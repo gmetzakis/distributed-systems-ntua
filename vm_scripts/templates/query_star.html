@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<body>
+	
+	<table class="styled-table">
+			{% for key, value in dict.items() %}
+			<tr>
+			<th> <span title="nodeID"> {{key}}  </span> </th>
+			{% for key1, value1 in value.items() %}
+				<td> <span title="Key"> {{ value1[0] }} </span> </td>
+				<td class="dio"> <span title="Value"> {{ value1[1] }} </span> </td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+	</table>
+
+	<form>
+    <input type="button" value="Go back!" class="button button5" onclick="history.back()">
+    </form>
+
+</body>
+
+<style>
+	.styled-table {
+		margin: 25px 0;
+		font-size: 0.9em;
+		font-family: sans-serif;
+		min-width: 400px;
+		width: fit-content;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	}
+
+	
+	.styled-table th,
+	.styled-table td {
+		padding: 12px 15px;
+		text-align: center;
+	}
+
+	.styled-table tbody th{
+    background-color: #000000;
+    color: #ffffff;
+	border-right: 2px solid black;
+}
+
+
+	.styled-table tbody td.dio {
+		background-color: #bfd1d1;
+		border-right: 1px solid black;
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	}
+		
+	.styled-table tbody tr:nth-of-type(even) {
+		background-color: #f3f3f3;
+	}
+	
+	.button {
+		background-color: #4CAF50; /* Green */
+		border: none;
+		color: white;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 1.2em; 
+		margin: 6px 2px;
+		border-radius: 3px;
+		transition-duration: 0.6s;
+		cursor: pointer;
+	}
+
+	.button5 {
+		background-color: rgb(241, 239, 239);
+		color: black;
+		border: 2px solid #000000;
+	}
+
+	.button5:hover {
+		background-color: #000000;
+		color: white;
+	}
+
+</style>
+</html>
+
+<!-- background-color: 8dc4c7 -->

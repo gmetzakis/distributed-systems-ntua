@@ -1,0 +1,175 @@
+<html>
+    <body>
+
+        {% if number==1 %}
+        <p> Node "{{x}}" joined the chord. </p>
+        {% endif %}
+
+        {% if number==2 %}
+        <p> Node "{{x}}" departed from the chord. </p>
+        {% endif %}
+
+        {% if number==3 %}
+        <p> Pair "({{x}},{{y}})" inserted in node "{{z}}". </p>
+        {% endif %}
+
+        {% if number==4 %}
+        <p> Key "{{x}}" deleted from node "{{y}}". </p>
+        {% endif %}
+
+        {% if number==5 %}
+        <p> Last replica pair "({{x}},{{y}})" inserted in node "{{z}}". </p>
+        {% endif %}
+
+        {% if number==6 %}
+        <p> Pair "({{x}},{{y}})" inserted in node "{{z}}", now continuing to next nodes.</p>
+        {% endif %}
+
+        {% if number==7 %}
+        <p> Last replica key "{{x}}" deleted from node "{{y}}". </p>
+        {% endif %}
+
+        {% if number==8 %}
+        <p> Key "{{x}}" deleted from node "{{z}}", now continuing to next nodes. </p>
+        {% endif %}
+
+        {% if number==9 %}
+        <p> Found key "{{x}}" in node "{{y}}" with value "{{z}}". </p>
+        {% endif %}
+
+        {% if number==10 %}
+        <p> Forwarding... </p>
+        {% endif %}
+
+        {% if number==11 %}
+        <p> There is no node with key "{{x}}". </p>
+        {% endif %}
+
+        {% if number==12 %}
+        <h2>Connected nodes: </h2>
+        <table class="styled-table">
+            <tr>
+                <th>No </th>
+                <th> Node ID</th>
+                <th> IP Address</th>
+            </tr>
+            {% for k in range(list|length) %}
+            <tr>
+                <td> {{k+1}}.</td>
+                <td> {{ list[k] }} </td>
+                <td> {{ addresses[list[k]] }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+
+        {% if number==13 %}
+        <table class="styled-table">
+            <tr>
+                <th> Command </th>
+                <th> Attributes</th>
+                <th> Action</th>
+            </tr>
+
+            <tr>
+                <td> insert</td>
+                <td> key,value </td>
+                <td> Insert a (key,value) pair in the responsible node, where key is a song's name and value is a random string </td>
+            </tr>
+
+            <tr>
+                <td> delete </td>
+                <td> key </td>
+                <td> Delete the (key,value) pair from the responsible node, given the key </td>
+            </tr>
+
+            <tr>
+                <td> query </td>
+                <td> key </td>
+                <td> Search for given key, and return its value and the responsible node. If given key is "*", return all (key,value) pairs for every node  </td>
+            </tr>
+
+            <tr>
+                <td> depart </td>
+                <td> - </td>
+                <td> Gracefully depart from the DHT Chord </td>
+            </tr>
+
+            <tr>
+                <td> overlay </td>
+                <td> - </td>
+                <td> Print network topology: The nodes of the chord are printed in order </td>
+            </tr>
+
+        </table>
+        {% endif %}
+
+        {% if number==14 %}
+        <p> I'm sorry, you cannot depart the chord! You are the bootstrap node!! </p>
+        {% endif %}   
+
+        <form>
+        <input type="button" value="Go back!" class="button button5" onclick="history.back()">
+        </form>
+
+    </body>
+
+    <style>
+        .styled-table {
+            margin: 25px 0;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            width: fit-content;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+    
+        
+        .styled-table th,
+        .styled-table td {
+            padding: 12px 15px;
+            text-align: center;
+        }
+    
+        .styled-table tbody th{
+        background-color: #000000;
+        color: #ffffff;
+        border-right: 2px solid black;
+        }
+
+        .styled-table tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        
+        .button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.2em; 
+            margin: 6px 2px;
+            border-radius: 3px;
+            transition-duration: 0.6s;
+            cursor: pointer;
+        }
+
+        .button5 {
+            background-color: rgb(241, 239, 239);
+            color: black;
+            border: 2px solid #000000;
+        }
+
+        .button5:hover {
+            background-color: #000000;
+            color: white;
+        }
+
+        p {
+            font-size: 1.4em; /* 14px/16=0.875em */
+        }
+
+    </style>
+
+</html>

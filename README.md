@@ -1,9 +1,9 @@
-# Συνεργάτες: 
+# Συνεργάτες 
 **Skoufis Petros: https://github.com/pskoufis13**
   
     
   
-# Γενικές Οδηγίες:
+# Γενικές Οδηγίες
 
 Στον φάκελο vm_scripts βρίσκονται τα αρχεία που είχαν όλοι οι VMs (μόνο ο VM που έτρεχε ο bootstrap είχε τα 2 σχετικά py αρχεία).
 Στον υποφάκελο input_files βρίσκονται τα 3 αρχεία εισόδου insert.txt, query.txt, requests.txt
